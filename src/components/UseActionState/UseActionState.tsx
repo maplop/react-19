@@ -33,18 +33,18 @@ export const UseActionState = () => {
     <div style={{ marginBottom: '16px' }}>
       <h4>Mi trabajo actual es: {state?.job}</h4>
       <form action={submitAction}>
-        <div style={{ marginBottom: '8px' }}>
-          <label style={{ textAlign: 'initial' }}>Ingrese su trabajo actual</label>
+        <label style={{ textAlign: 'initial' }}>Ingrese su trabajo actual</label>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
           <input
             placeholder='Ej. developer'
             type="text"
             id="jobInput"
             name='job'
           />
+          <button type='submit' disabled={isPending}>
+            {isPending ? 'Actualizando...' : 'Enviar'}
+          </button>
         </div>
-        <button type="submit" disabled={isPending}>
-          {isPending ? 'Actualizando...' : 'Enviar'}
-        </button>
       </form>
       {state?.error && <p style={{ color: 'red' }}>{state.message}</p>}
       {!state?.error && state?.job && <p style={{ color: 'green' }}>{state.message}</p>}

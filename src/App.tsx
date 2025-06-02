@@ -3,6 +3,8 @@ import UseStateActionImg from './assets/useActionState.png'
 import PokemonListImg from './assets/PokemonList.png'
 import PokemonCardImg from './assets/PokemonCard.png'
 import UseTransitionImg from './assets/useTransition.png'
+import UseFormStatusImg1 from './assets/UseFormStatus1.png'
+import UseFormStatusImg2 from './assets/UseFormStatus2.png'
 import "./App.css";
 import { PokemonList } from "./components/Use/PokemonList";
 import { use, useCallback, useState } from "react";
@@ -10,6 +12,7 @@ import { AuthContext } from "./context/AuthContext";
 import { Form } from "./components/UseTransition/Form";
 import { TabButton } from "./components/TabButton";
 import { UseActionState } from "./components/UseActionState/UseActionState";
+import { UseFormStatus } from "./components/UseFormStatus/UseFormStatus";
 
 export type TabProps =
   'use' | 'useTransition' | 'useActionState' | 'useFormStatus' | 'useOptimistic'
@@ -44,14 +47,17 @@ function App() {
           <div>
             <p><code>useActionState</code> es un Hook que le permite actualizar el estado en función del resultado de una acción de formulario.</p>
             <UseActionState />
-            <img src={UseStateActionImg} alt="img" />
+            <img src={UseStateActionImg} alt="img-useActionState" />
           </div>
         );
       case 'useFormStatus':
         return (
           <div>
-            <h2>Hook useFormStatus()</h2>
-            <p>Proporciona información sobre el estado de un formulario</p>
+            <p><code>useFormStatus</code> es un Hook que le brinda información sobre el estado del último envío del formulario.</p>
+            <UseFormStatus />
+            <img src={UseFormStatusImg1} alt="img-useActionState1" style={{ marginBottom: 24 }} />
+            <img src={UseStateActionImg} alt="img-useActionState2" />
+
           </div>
         );
       case 'useOptimistic':

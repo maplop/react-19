@@ -39,3 +39,41 @@ export const updateJob = async (job: string) => {
     job: job,
   };
 };
+
+// api.ts
+type ApiResponse = {
+  status: "success" | "error";
+  message?: string;
+  data?: Record<string, FormDataEntryValue>;
+};
+
+export const submitLanguage = async (
+  formData: FormData
+): Promise<ApiResponse> => {
+  try {
+    const language = formData.get("language")?.toString().trim();
+
+    if (!language || language.length < 2) {
+      throw new Error("El lenguaje debe tener al menos 2 caracteres");
+    }
+
+    await new Promise((resolve, reject) => {
+      setTimeout(() => {
+        Math.random() > 0.9
+          ? reject(new Error("Error de conexión con el servidor"))
+          : resolve(true);
+      }, 1500);
+    });
+
+    return {
+      status: "success",
+      data: Object.fromEntries(formData),
+    };
+  } catch (err) {
+    const message = err instanceof Error ? err.message : "Error desconocido";
+    return {
+      status: "error",
+      message,
+    };
+  }
+};

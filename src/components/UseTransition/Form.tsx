@@ -42,9 +42,10 @@ export const Form = () => {
             placeholder="Ej. Jhon Doe"
             value={name}
             onChange={e => setName(e.target.value)}
-            style={{ margin: 0 }}
+
           />
           <button
+            type="submit"
             disabled={isPending}
           >
             {isPending ? 'Cargando...' : 'Actualizar'}
