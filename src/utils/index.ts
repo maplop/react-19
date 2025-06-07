@@ -40,7 +40,6 @@ export const updateJob = async (job: string) => {
   };
 };
 
-// api.ts
 type ApiResponse = {
   status: "success" | "error";
   message?: string;

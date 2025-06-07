@@ -5,6 +5,7 @@ import PokemonCardImg from './assets/PokemonCard.png'
 import UseTransitionImg from './assets/useTransition.png'
 import UseFormStatusImg1 from './assets/UseFormStatus1.png'
 import UseFormStatusImg2 from './assets/UseFormStatus2.png'
+import OptimisticImg from './assets/Optimistic.png'
 import "./App.css";
 import { PokemonList } from "./components/Use/PokemonList";
 import { use, useCallback, useState } from "react";
@@ -13,6 +14,7 @@ import { Form } from "./components/UseTransition/Form";
 import { TabButton } from "./components/TabButton";
 import { UseActionState } from "./components/UseActionState/UseActionState";
 import { UseFormStatus } from "./components/UseFormStatus/UseFormStatus";
+import { UseOptimistic } from "./components/UseOptimistic/UseOptimistic";
 
 export type TabProps =
   'use' | 'useTransition' | 'useActionState' | 'useFormStatus' | 'useOptimistic'
@@ -56,16 +58,15 @@ function App() {
             <p><code>useFormStatus</code> es un Hook que le brinda información sobre el estado del último envío del formulario.</p>
             <UseFormStatus />
             <img src={UseFormStatusImg1} alt="img-useActionState1" style={{ marginBottom: 24 }} />
-            <img src={UseStateActionImg} alt="img-useActionState2" />
-
+            <img src={UseFormStatusImg2} alt="img-useActionState2" />
           </div>
         );
       case 'useOptimistic':
         return (
           <div>
-            <h2>Hook useOptimistic()</h2>
-            <p>Permite mostrar un estado optimista durante mutaciones</p>
-
+            <p><code>useOptimistic</code> es un React Hook que te permite actualizar la interfaz de usuario de forma optimista.</p>
+            <UseOptimistic />
+            <img src={OptimisticImg} alt="img-optimistic" style={{ marginTop: 24 }} />
           </div>
         );
       default:
